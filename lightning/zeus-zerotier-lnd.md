@@ -1,4 +1,5 @@
 # Connect Zeus with ZeroTier to LND
+A checklist to connect the [Zeus](https://zeusln.com/) app with [ZeroTier](https://my.zerotier.com/) to the lighning node [LND](https://docs.lightning.engineering/lightning-network-tools/lnd).
 
 ## 1 Sign up at zerotier and create a network
 - visit https://my.zerotier.com
@@ -51,3 +52,5 @@
 - https://docs.zerotier.com/start
 - https://tutorials.lightningnode.info/zerotier/
 - https://darthcoin.substack.com/p/tailscale-tunnel-zu-deiner-node-aufsetzen
+
+[/](./../readme.md)
