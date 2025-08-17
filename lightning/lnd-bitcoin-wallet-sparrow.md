@@ -84,6 +84,7 @@ Your LND Bitcoin Wallet is now open in Sparrow.
 You may check the opened LND Bitcoin Wallet with the `xpub` from above or you use the `lncli wallet addresses list` command and check some addresses.  
 When you have a transaction history or funds on the wallet you see also wheter it is correct or not.
 
-
 ## Sources
 - https://danielabrozzoni.com/posts/import-aezeed-seed-into-sparrow/
+
+[/](./../readme.md)
