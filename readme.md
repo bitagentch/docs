@@ -12,6 +12,9 @@ Bitagent provides lightning addresses, `yourname@bitagent.ch` for example, to yo
 ### [Connect Zeus with ZeroTier to LND](./lightning/zeus-zerotier-lnd.md)
 A checklist to connect the Zeus app with ZeroTier to the lighning node LND.
 
+### [Open a LND Bitcoin Wallet in Sparrow](./lightning/lnd-bitcoin-wallet-sparrow.md)
+How to open the LND Bitcoin Wallets in Sparrow Wallet.
+
 ## Nostr
 
 ### [NIPs](./nostr/nips.md)
