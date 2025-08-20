@@ -1,17 +1,19 @@
 # Open a LND Bitcoin Wallet in Sparrow
 
-## 1 Introduction
+## 1 aezeed mnemonic sentence
 When you use the Lightning Network Daemon [lnd](https://github.com/lightningnetwork/lnd), you have an [aezeed](https://github.com/lightningnetwork/lnd/tree/master/aezeed) mnemonic sentence (24 words) for backup.  
 `aezeed` is an advanced form of the [bip39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) mnemonic sentence.  
 If you want to use your backup, you can't import it in any Bitcoin Wallet, because they usually only support `bip39`.  
 The only wallet i know, that supports the import of an `aezeed` mnemonic sentence is [BlueWallet](https://bluewallet.io/), but they don't support [Taproot](https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki) addresses yet.  
 
-## 2 aezeed Decoder
+## 2 bip32 master private key
 [Sparrow](https://www.sparrowwallet.com/) Wallet supports the import of a [bip32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) master private key.  
-And [Guggero](https://github.com/guggero) has written a [decoder](https://guggero.github.io/cryptography-toolkit/#!/aezeed) for an `aezeed` mnemonic sentence to a `bip32` master private key.  
-To use the decoder it is better to [clone](https://github.com/guggero/cryptography-toolkit) it and open the `index.html` local in your browser.  
+And there are two possibilities to get the `bip32` master private key from the `aezeed` mnemonic sentence.
+1. A [decoder](https://guggero.github.io/cryptography-toolkit/#!/aezeed) written by [guggero](https://github.com/guggero)
+2. The [chantools](https://github.com/lightninglabs/chantools) `showrootkey` command
 
-## 3 aezeed generate / decode Example
+## 3.1 aezeed generate / decode Example
+To use the decoder it is better to [clone](https://github.com/guggero/cryptography-toolkit) it and open the `index.html` local in your browser.  
 When you [generate](https://guggero.github.io/cryptography-toolkit/#!/aezeed) an `aezeed` mnemonic sentence with the following parameters
 - aezeed version `0`
 - Internal version `1`
@@ -29,6 +31,20 @@ and the `bip32` master private key
 xprv9s21ZrQH143K2JbpEjGU94NcdKSASB7LuXvJCTsxuENcGN1nVG7QjMnBZ6zZNcJaiJogsRaLaYFFjs48qt4Fg7y1GnmrchQt1zFNu6QVnta
 ```
 And when you decode this `aezeed` mnemonic sentence, you will the get same parameters and the same `bip32` master private key back.
+
+## 3.2 chantools showrootkey Example
+If you don't want to trust a browser you can do it also on the command line.  
+You need to install the [chantools](https://github.com/lightninglabs/chantools) and then you may run the `chantools showrootkey` command.
+```
+$ chantools showrootkey
+[INF] CHAN: chantools version v0.14.1 commit 
+Input your 24-word mnemonic separated by spaces: abstract essay woman staff seminar culture neck grunt notable work between torch mandate loud stomach eager deer object abandon abandon abandon ancient pole avocado
+
+Input your cipher seed passphrase (press enter if your seed doesn't have a passphrase): 
+
+Your BIP32 HD root key is: xprv9s21ZrQH143K2JbpEjGU94NcdKSASB7LuXvJCTsxuENcGN1nVG7QjMnBZ6zZNcJaiJogsRaLaYFFjs48qt4Fg7y1GnmrchQt1zFNu6QVnta
+```
+For the same `aezeed` mnemonic words you get the same `bip32` master private key as above.
 
 ## 4 LND Bitcoin Wallets
 When you run the LND `lncli wallet accounts list` command, you will see a list of accounts:
@@ -86,5 +102,6 @@ When you have a transaction history or funds on the wallet you see also wheter i
 
 ## Sources
 - https://danielabrozzoni.com/posts/import-aezeed-seed-into-sparrow/
+- https://github.com/guggero
 
 [/](./../readme.md)
